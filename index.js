@@ -28,3 +28,22 @@ const questions = [
     message: "Please enter a color keyword (or hexadecimal number) for the shape!"
   },
 ]
+
+function startQuestions (){
+  inquirer.prompt(questions)
+  .then ((responses)=>{
+    console.log(responses)
+    })
+}
+
+function makeSvg(responses) {
+  shape.render
+}
+
+
+
+// function validateLength() {
+//   if string.length > 3
+// }
+
+startQuestions()
