@@ -12,16 +12,28 @@ class Circle extends Shape{
   constructor(shape, shapeColor){
     super(shape,shapeColor)
   }
+  render = () => {
+    
+    '<shape points="150, 18 244, 182 56, 182" fill="blue" />'
+  }
 }
 
 class Triangle extends Shape{
   constructor(shape, shapeColor){
     super(shape,shapeColor)
   }
+  render = () => {
+    
+    '<shape points="150, 18 244, 182 56, 182" fill="blue" />'
+  }
 }
 
 class Square extends Shape{
   constructor(shape, shapeColor){
     super(shape,shapeColor)
+  }
+  render = () => {
+    
+    '<shape points="150, 18 244, 182 56, 182" fill="blue" />'
   }
 }
