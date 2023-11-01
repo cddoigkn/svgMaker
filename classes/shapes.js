@@ -1,5 +1,4 @@
-// export shapes constructor so that shapes can be used in other files
-module.exports = {Shape};
+
 // get Shapes class going
 class Shape {
   constructor(shape, shapeColor){
@@ -14,7 +13,7 @@ class Circle extends Shape{
   }
   render = () => {
     
-    '<shape points="150, 18 244, 182 56, 182" fill="blue" />'
+    return `<circle points="150, 18 244, 182 56, 182" fill="${this.shapeColor}" />`
   }
 }
 
@@ -24,7 +23,7 @@ class Triangle extends Shape{
   }
   render = () => {
     
-    '<shape points="150, 18 244, 182 56, 182" fill="blue" />'
+    return `<polygon points="150, 18 244, 182 56, 182" fill="${this.shapeColor}" />`
   }
 }
 
@@ -34,6 +33,9 @@ class Square extends Shape{
   }
   render = () => {
     
-    '<shape points="150, 18 244, 182 56, 182" fill="blue" />'
+    return `<rect points="150, 18 244, 182 56, 182" fill="${this.shapeColor}" />`
   }
 }
+
+// export shapes constructor so that shapes can be used in other files
+module.exports = {Shape, Circle, Triangle, Square};

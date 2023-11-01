@@ -1,5 +1,6 @@
 // requires inquirer in order to run said program //
-const inquirer = require("inquirer")
+const inquirer = require("inquirer");
+const {Circle, Triangle, Square} = require("./classes/shapes");
 // while in node, has the user answer a few questions so that it can generate an image accordingly
 const questions = [
   // has user enter 3 characters for their logo
@@ -33,11 +34,25 @@ function startQuestions (){
   inquirer.prompt(questions)
   .then ((responses)=>{
     console.log(responses)
-    })
+    console.log(makeSvg(responses))
+  })
 }
 
 function makeSvg(responses) {
-  shape.render
+  let newShape
+  if (responses.shape === "Triangle"){
+    newShape = new Triangle(responses.shape, responses.shapeColor)
+  }
+  else if
+  (responses.shape === "Circle"){
+    newShape = new Circle(responses.shape, responses.shapeColor)
+  }
+  else if
+  (responses.shape === "Square"){
+    newShape = new Square(responses.shape, responses.shapeColor)
+  }
+  return newShape.render()
+
 }
 
 
