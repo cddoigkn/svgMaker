@@ -34,9 +34,11 @@ const questions = [
 function startQuestions (){
   inquirer.prompt(questions)
   .then ((responses)=>{
+  if (validateLength(responses.name)){
     const svg = makeSvg(responses)
     writeToFile("logo.svg", svg)
     console.log("Generated logo.svg")
+  }
   })
 }
 
@@ -55,7 +57,7 @@ function makeSvg(responses) {
   }
   const newSvg = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
   ${newShape.render()}
-  <text x="150" y="125" font-size="60" text-anchor="middle" fill="${responses.textColor}">${responses.name}</text>
+  <text x="150" y="125" font-size="40" text-anchor="middle" fill="${responses.textColor}">${responses.name}</text>
 
 </svg>`
 return newSvg
@@ -68,8 +70,12 @@ function writeToFile(fileName, data) {
 }
 
 
-// function validateLength() {
-//   if string.length > 3
-// }
+function validateLength(string) {
+  if (string.length <= 3)
+  {return true
+}
+  else 
+  console.log("3 characters or less, please!")
+}
 
 startQuestions()
