@@ -13,7 +13,7 @@ class Circle extends Shape{
   }
   render = () => {
     
-    return `<circle points="150, 18 244, 182 56, 182" fill="${this.shapeColor}" />`
+    return `<circle cx="152" cy="110" r="60" fill="${this.shapeColor}" />`
   }
 }
 
@@ -33,7 +33,7 @@ class Square extends Shape{
   }
   render = () => {
     
-    return `<rect points="150, 18 244, 182 56, 182" fill="${this.shapeColor}" />`
+    return `<rect x="77" y="35" width="150" height="150" fill="${this.shapeColor}" />`
   }
 }
 

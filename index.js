@@ -1,5 +1,6 @@
 // requires inquirer in order to run said program //
 const inquirer = require("inquirer");
+const fs = require("fs");
 const {Circle, Triangle, Square} = require("./classes/shapes");
 // while in node, has the user answer a few questions so that it can generate an image accordingly
 const questions = [
@@ -33,8 +34,9 @@ const questions = [
 function startQuestions (){
   inquirer.prompt(questions)
   .then ((responses)=>{
-    console.log(responses)
-    console.log(makeSvg(responses))
+    const svg = makeSvg(responses)
+    writeToFile("logo.svg", svg)
+    console.log("Generated logo.svg")
   })
 }
 
@@ -51,10 +53,19 @@ function makeSvg(responses) {
   (responses.shape === "Square"){
     newShape = new Square(responses.shape, responses.shapeColor)
   }
-  return newShape.render()
+  const newSvg = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  ${newShape.render()}
+  <text x="150" y="125" font-size="60" text-anchor="middle" fill="${responses.textColor}">${responses.name}</text>
 
+</svg>`
+return newSvg
 }
 
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (error) => {
+    if( error ) console.log("!")
+  })
+}
 
 
 // function validateLength() {
